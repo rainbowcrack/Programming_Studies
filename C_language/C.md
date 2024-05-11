@@ -11,9 +11,13 @@ Não se esqueça do ponto e vírgula (;) no final de cada comando;
 - Esses são os termos essencialmente necessários para que rode o código
   
 "# include <studio.h>
+
    int main(void){
+   
    // escreva aqui o seu código
+
    return 0;
+   
   }
 
 # Símbolos
@@ -42,5 +46,7 @@ Para o I/O de um texto, usamos o "%s" e o scanf deve nome_variavel (sem a inclus
 Nesse caso especial, o valor será char e definimos o seu espaço, igual o exemplo:
 
 char nome_varivel[numero_caracteres];
+
 scanf("%s", nome);
+
 printf("Seu nome é: %s\n", nome);
