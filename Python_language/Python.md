@@ -32,4 +32,4 @@ Suas entradas de variáveis são:
   variavel = str(input("Escreva seu nome: "))
   print(f"Seu nome é {nome}")
   ```
-  Observe que diferentemente de C e suas sub-variantes, no Python o tipo 'long' é declarado por 'int' e o 'char' é assumido como 'str'.
+Observe que diferentemente de C e suas sub-variantes, no Python o tipo 'long' é declarado por 'int' e o 'char' é assumido como 'str'.
