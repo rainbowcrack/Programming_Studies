@@ -109,3 +109,234 @@ carro1.abastecer(qtdeLitros: 35)
 carro1.quantidadeCombustivel()
 //Resultado: 35
 
+HERANCA DE CLASSES
+class Veiculo{
+
+    var pneus: String?
+    var assentos: String?
+    var motor: String?
+    
+    func desc() {
+        print("Número de rodas \(self.pneus ?? " "), Número de Assentos \(self.assentos ?? " "), Potencia Motor \(self.motor ?? " ")") 
+    }
+}
+
+
+class Carro: Veiculo {
+    var tipo: String?
+}
+
+class Caminhao: Veiculo {
+    var tipo: String?
+    var eixos: Int?
+}
+
+class Motocicleta: Veiculo {
+    var cilindradas: Int?
+}
+
+class Aviao: Veiculo {
+    var numMotores: Int?
+}
+
+
+var c = Caminhao()
+c.pneus = "TY607 295/80 R22,5"
+c.assentos = "3 Lugares"
+c.motor = "V8"
+c.tipo = " Caçamba "
+c.eixos = 5
+c.desc()
+---------------------------------------
+EXERCICIOS:
+class Veiculo{
+
+    var pneus: String?
+    var assentos: String?
+    var motor: String?
+    
+    func desc() {
+        print("Número de rodas \(self.pneus ?? " "), Número de Assentos \(self.assentos ?? " "), Potencia Motor \(self.motor ?? " ")") 
+    }
+}
+
+
+class Motocicleta: Veiculo {
+    var cilindradas: Int?
+}
+
+class Aviao: Veiculo {
+    var numMotores: Int?
+}
+
+var m = Motocicleta()
+m.pneus = "2"
+m.assentos = "1"
+m.motor = "1"
+m.cilindradas = 4
+m.desc()
+
+var a = Aviao()
+a.pneus = "8"
+a.assentos = "200"
+a.motor = "3"
+a.numMotores = 2
+a.desc()
+
+OVERRIDE:
+class Veiculo{
+
+    var modelo: String?
+    var marca: String?
+    var ano: Int?
+
+    func desc() {
+        print(" \(self.modelo ?? " "),  marca \(self.marca ?? " ") e ano \(self.ano ?? 0) ")
+    }
+    
+    func buzinar() {
+        print(" Barulho emitido pelo respectivo veiculo") 
+    }
+}
+
+
+class Motocicleta: Veiculo {
+   
+ override func buzinar() {
+        print(" Barulho emitido pela \(self.modelo ?? " ")") 
+        print(" biiip biiiip biiip \n") 
+    }
+    
+    init (ma: String, mo: String, a: Int)
+    {
+        super.init()
+        marca = ma
+        modelo = mo
+        ano = a
+    }
+    
+}
+class Carro: Veiculo {
+    
+  override  func buzinar() {
+        print(" Barulho emitido pelo \(self.modelo ?? " ")") 
+        print(" baaaaanp baaaaaanp baaaanp \n") 
+    }
+    
+    init (ma: String, mo: String, a: Int)
+    {
+        super.init()
+        marca = ma
+        modelo = mo
+        ano = a
+    }
+
+    OVERRIDE:
+    //Crie as classes  Animal, Cao, Gato, faça as devidas associações, 
+//crie as propriedades nome e raça
+//e use os conceitos aprendidos de Overloading, e Overriding, 
+//para criar os métodos emitirSom( ), comer( ), escalar( ) e babar ( )
+//para o método comer, receba a comida por parâmetro.
+
+class Animal
+{
+    var nome: String = "nome"
+    var raca: String = "raça"
+
+    func Comer(comida: String)
+    {
+      print ("\(nome), da raça \(raca), adoro \(comida)");
+    }
+    
+    func emitirSom()
+    {
+        print("Sou animal, emito sons!");
+    }
+}
+
+
+class Cao: Animal
+{
+    override func emitirSom()
+    {
+        print("Au au")
+    }
+    
+    func babar()
+    {
+        print("Babei! \n")
+    }
+    
+    init (n: String, r: String)
+    {
+        super.init()
+        nome = n
+        raca = r
+    }
+}
+ 
+class Gato : Animal
+{
+    func escalar()
+    {
+        print("Subindo...\n")
+    }
+    
+    override func emitirSom()
+    {
+        print("Miauuu")
+    }
+    
+    init (n: String, r: String)
+    {
+        super.init()
+        nome = n
+        raca = r
+    }
+}
+
+
+var c = Cao(n: "Rex", r:"Fila")
+var g = Gato(n: "Mimi", r: "Persa")
+
+
+c.Comer(comida: "bife")
+c.emitirSom()
+c.babar()
+
+g.Comer(comida: "atum")
+g.emitirSom()
+g.escalar()
+}
+
+class Caminhão: Veiculo {
+    
+ override func buzinar() {
+        print(" Barulho emitido pelo \(self.modelo ?? " ")") 
+        print(" fooon foooooon fooon \n") 
+    }
+    
+    init (ma: String, mo: String, a: Int)
+    {
+        super.init()
+        marca = ma
+        modelo = mo
+        ano = a
+    }
+
+}
+
+
+
+
+var mot = Motocicleta(ma:"Hond", mo: "GC" , a: 2013)
+mot.desc()
+mot.buzinar()
+
+var car = Carro(ma:"VW", mo: "Gool" , a: 2019)
+car.desc()
+car.buzinar()
+
+var cam = Caminhão(ma:"GM", mo: "Trucker" , a: 2018)
+cam.desc()
+cam.buzinar()
