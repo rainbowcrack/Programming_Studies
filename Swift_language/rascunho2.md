@@ -44,3 +44,62 @@ Nesse caso, utilizamos o operador “!” para desempacotar o Int contido em num
 
 Perceba que utilizamos o operador “!” na constante numeroInteiro1 novamente, porém nesse caso, ela estaria valendo nil, pois a função Int(“Um”) retornaria nil já que não saberia converter a String “Um” em um inteiro válido. Sempre que nosso programa tentar executar uma “nil!” (desempacotamento de um nil), ele seria morto por chegar em um estado inconsistente!
 
+Para realizar operações lógicas em Swift temos dois operadores principais: o AND (&&) e o OR (||). Perceba que assim como em outras linguagens que você conhece, os operadores lógicos são mais comumente utilizados em controles condicionais (ifs), como veremos na próxima seção.
+
+Vejamos primeiramente como funciona o operador ternário. Trata-se de um operador que pode ser utilizado com fins de legibilidade para atribuir um valor dependendo de uma condição, a uma variável ou a uma constante. Temos nesse comando, um resultado atribuído no caso de a condição ser verdadeira e um outro resultado para o caso contrário.
+
+let resultado = (1 > 2) ? "1 é maior que 2" : "1 não é maior que 2"
+print(resultado) // será impresso "1 não é maior que 2"
+
+Perceba que o switch em Swift não precisa de break ao fim de cada bloco de condição. Além disso, o caso default em Swift é obrigatório; se não for definido, gera um erro de compilação. Lembre-se, Swift é seguro e quer evitar ao máximo que o programador cometa erros. Os switches em Swift podem ser ainda mais elaborados. Veja, por exemplo, um caso onde utilizamos um intervalo (range) dentro das condições:
+let temperatura = 29
+
+switch temperatura {
+case 30...50:
+    // 30...50 define um intervalo (tipo Range) que vai de 30 até 50 (inclusive)
+    print("Muito quente!")
+case 29:
+    // temperatura exatamente igual a 29 graus
+    print("Vinte e nove graus.")
+case 20..<29:
+    // 20..<29 define um Range que vai de 20 até 28 (29 é excluído nesse caso)
+    print("Temperatura confortável.")
+default:
+    print("Outra temperatura.")
+}
+
+Para iterações em Swift, vamos olhar os comandos while, repeat-while e for. Os dois primeiros são utilizados para se iterar até que uma condição seja satisfeita, enquanto o último é utilizado para se iterar por coleções de dados (Arrays, por exemplo) ou ranges.
+
+var intOpcional: Int? // inicialmente nil, pois não atribuímos nenhum valor
+
+repeat {
+    intOpcional = funcQuePodeRetornarUmInt()
+} while intOpcional == nil
+
+Perceba quão poderoso é esse comando nesse formato. Com ele não precisamos mais incrementar a variável de controle i nem a inicializar; não precisamos indexar o vetor com i a cada iteração, e melhor ainda, nem precisamos saber que o vetor tem N elementos! O Swift se encarrega desses detalhes chatos de implementação, que deixariam nosso código verboso, e se encarrega de percorrer o vetor para nós.
+
+
+for i in 0...2 {
+    print("i=\(i)")
+}
+
+// serão impressas as linhas:
+// i=0
+// i=1
+// i=2
+
+for i in 0..<2 {
+    print("i=\(i)")
+}
+
+// serão impressas as linhas:
+// i=0
+// i=1
+
+outro exemplo: let fator = 2
+var auxiliar = 1
+
+for i in 0..<10{
+    print (auxiliar)
+    auxiliar += fator
+}
